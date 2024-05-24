@@ -15,6 +15,15 @@ namespace PagrindinisProgramosFunckionalumas.Models
 
         public bool Sugedes { get; set; } = false;
 
+        public TransportoPriemone(string marke, string modelis, DateTime prd, string vinkodas)
+        { 
+            Marke = marke;
+            Modelis = modelis;
+            PirmosRegistracijosData = prd;
+            VINKodas = vinkodas;
+
+        }
+
         public void Taisyti()
         {
             Sugedes = false;

@@ -10,12 +10,9 @@ namespace PagrindinisProgramosFunckionalumas.Models
     public class Automobilis : TransportoPriemone
     {
         public AutomobilioBukle Bukle { get; set; }
-        public Automobilis(string marke, string modelis, DateTime regdata, string vinkodas, AutomobilioBukle bukle)
+        public Automobilis(string marke, string modelis, DateTime regdata, string vinkodas, AutomobilioBukle bukle) 
+            : base(marke,modelis,regdata,vinkodas)
         {
-            Marke = marke;
-            Modelis = modelis;
-            PirmosRegistracijosData = regdata;
-            VINKodas = vinkodas;
             Bukle = bukle;
         }
         public override void Sugadinti()
