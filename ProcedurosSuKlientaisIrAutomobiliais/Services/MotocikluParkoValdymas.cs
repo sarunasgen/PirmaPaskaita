@@ -9,55 +9,53 @@ using System.Threading.Tasks;
 
 namespace ProcedurosSuKlientaisIrAutomobiliais.Services
 {
-    public class AutomobiliuParkoValdymas : IAutomobilioParkoValdymas
+    public class MotocikluParkoValdymas : IAutomobilioParkoValdymas
     {
-        private List<Automobilis> Automobiliai = new List<Automobilis>();
+        private List<Motociklas> Motociklai = new List<Motociklas>();
         private List<Klientas> Klientai = new List<Klientas>();
         private readonly VeiksmaiSuFailais _veiksmaiSuFailais;
 
-        public AutomobiliuParkoValdymas()
+        public MotocikluParkoValdymas()
         {
             _veiksmaiSuFailais = new VeiksmaiSuFailais();
         }
         public void SaugotiBusena()
         {
-            _veiksmaiSuFailais.SpausdintiAutomobiliusIFaila(Automobiliai);
+            _veiksmaiSuFailais.SpausdintiMotociklusIFaila(Motociklai);
             _veiksmaiSuFailais.SpausdintiKlientusIFaila(Klientai);
         }
         public void PridetiKlienta(Klientas klientas)
         {
             Klientai.Add(klientas);
         }
-
-        public List<TransportoPriemone> RastiAutomobiliusPagalRakta(string raktas)
+        public void PridetiAutomobili(TransportoPriemone automobilis)
         {
-            List<TransportoPriemone> rastiAutomobiliai = new List<TransportoPriemone>();
-            foreach(Automobilis automobilis in Automobiliai)
-            {
-                if(automobilis.Marke.Contains(raktas) || automobilis.Modelis.Contains(raktas))
-                {
-                    rastiAutomobiliai.Add(automobilis) ;
-                }
-            }
-            return rastiAutomobiliai;
+            Motociklai.Add((Motociklas)automobilis);
         }
 
         public void PasalintiAutomobili(TransportoPriemone automobilis)
         {
-            Automobiliai.Remove((Automobilis)automobilis);
+            Motociklai.Remove((Motociklas)automobilis);
         }
 
-        public void PridetiAutomobili(TransportoPriemone automobilis)
+        public List<TransportoPriemone> RastiAutomobiliusPagalRakta(string raktas)
         {
-            Automobiliai.Add((Automobilis)automobilis);
-            TaisytiVisusAutomobilius();
-        }
-        private void TaisytiVisusAutomobilius()
-        {
-            foreach(Automobilis automobilis in Automobiliai)
+            List<TransportoPriemone> rastiAutomobiliai = new List<TransportoPriemone>();
+            foreach (Motociklas motociklas in Motociklai)
             {
-                automobilis.Taisyti();
+                if (motociklas.Marke.Contains(raktas) || motociklas.Modelis.Contains(raktas))
+                {
+                    rastiAutomobiliai.Add(motociklas);
+                }
             }
+            return rastiAutomobiliai; 
         }
+        public void SpausdinkRandomTeksta()
+        {
+            Console.WriteLine("Labai random tekstas");
+        }
+
+
+
     }
 }

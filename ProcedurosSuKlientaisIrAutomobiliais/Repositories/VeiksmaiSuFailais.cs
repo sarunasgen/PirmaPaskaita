@@ -14,9 +14,20 @@ namespace ProcedurosSuKlientaisIrAutomobiliais.Repositories
             using(StreamWriter sw = new StreamWriter("auto.txt"))
             {
                 sw.WriteLine("Automobilių sarasas");
-                foreach(Automobilis automobilis in automobiliai)
+                foreach(TransportoPriemone automobilis in automobiliai)
                 {
-                    sw.WriteLine($"{automobilis.Marke}  {automobilis.Modelis}  {automobilis.PirmosRegistracijosData.ToShortDateString()}  {automobilis.VINKodas}  {(int)automobilis.Bukle}");
+                    sw.WriteLine($"{automobilis.Marke}  {automobilis.Modelis}  {automobilis.PirmosRegistracijosData.ToShortDateString()}  {automobilis.VINKodas}");
+                }
+            }
+        }
+        public void SpausdintiMotociklusIFaila(List<Motociklas> automobiliai)
+        {
+            using (StreamWriter sw = new StreamWriter("auto.txt"))
+            {
+                sw.WriteLine("Automobilių sarasas");
+                foreach (TransportoPriemone automobilis in automobiliai)
+                {
+                    sw.WriteLine($"{automobilis.Marke}  {automobilis.Modelis}  {automobilis.PirmosRegistracijosData.ToShortDateString()}  {automobilis.VINKodas}");
                 }
             }
         }

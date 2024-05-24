@@ -7,12 +7,8 @@ using System.Threading.Tasks;
 
 namespace PagrindinisProgramosFunckionalumas.Models
 {
-    public class Automobilis
+    public class Automobilis : TransportoPriemone
     {
-        public string Marke { get; set; }
-        public string Modelis { get; set; }
-        public DateTime PirmosRegistracijosData { get; set; }
-        public string VINKodas { get; set; }
         public AutomobilioBukle Bukle { get; set; }
         public Automobilis(string marke, string modelis, DateTime regdata, string vinkodas, AutomobilioBukle bukle)
         {
@@ -21,6 +17,11 @@ namespace PagrindinisProgramosFunckionalumas.Models
             PirmosRegistracijosData = regdata;
             VINKodas = vinkodas;
             Bukle = bukle;
+        }
+        public override void Sugadinti()
+        {
+            Bukle = AutomobilioBukle.PaskutineKelione;
+            Sugedes = true;
         }
     }
 }
