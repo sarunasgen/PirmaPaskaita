@@ -8,9 +8,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Update="Failai\NaujasTextinis.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
+    <ProjectReference Include="..\PagrindinisProgramosFunckionalumas\PagrindinisProgramosFunckionalumas.csproj" />
+    <ProjectReference Include="..\ProcedurosSuKlientaisIrAutomobiliais\ProcedurosSuKlientaisIrAutomobiliais.csproj" />
   </ItemGroup>
 
 </Project>
